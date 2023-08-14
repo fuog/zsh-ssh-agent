@@ -47,3 +47,7 @@ Update your `.zshrc` file with the following line:
 ```sh
 zplug bobsoppe/zsh-ssh-agent, use:ssh-agent.zsh, from:github
 ```
+
+## troubleshooting
+
+-If you run into problems with the ssh-agent not working as expected, you may have some other ssh-agent that is messing up your shell configuration. i did run in to the gnome-keyring-ssh-agent. See [this page on how to disable](https://wiki.gnome.org/Projects/GnomeKeyring/Ssh) this feature of gnome.
