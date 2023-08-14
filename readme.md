@@ -50,4 +50,7 @@ zplug bobsoppe/zsh-ssh-agent, use:ssh-agent.zsh, from:github
 
 ## troubleshooting
 
--If you run into problems with the ssh-agent not working as expected, you may have some other ssh-agent that is messing up your shell configuration. i did run in to the gnome-keyring-ssh-agent. See [this page on how to disable](https://wiki.gnome.org/Projects/GnomeKeyring/Ssh) this feature of gnome.
+If you run into problems with the ssh-agent not working as expected, you may have some other ssh-agent that is messing up your shell configuration. 
+
+- i did run in to the gnome-keyring-ssh-agent. See [this page on how to disable](https://wiki.gnome.org/Projects/GnomeKeyring/Ssh) this feature of gnome.
+- i did also run in to a problem with [Xsessions starting a ssh-agent](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=658124). You would have to remove or comment the ssh-agent flag in `sudo vi /etc/X11/Xsession.options` to stop that beavior. Note: this is system level for all users.
