@@ -18,7 +18,7 @@ function start_ssh_agent() {
 
 	echo starting ssh-agent...
 	test -d $HOME/.ssh || return
-
+	rm $SSH_UNLOCK_IDS_TMP_SH >/dev/null 2>&1 # clean up if needed
 	[[ -f "$SSH_UNLOCK_IDS_FILE" ]] && local do_unlock=true
 	for file in $( find $HOME/.ssh -type f ); do
 		# Filter out all non private-key files
