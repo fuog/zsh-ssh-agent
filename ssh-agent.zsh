@@ -6,7 +6,6 @@ function start_ssh_agent() {
 	# Check if the variable is not defined and set it
 	: ${SSH_UNLOCK_IDS_FILE:=$HOME/.ssh/unlock_ids}
 	: ${SSH_UNLOCK_IDS_TMP_SH:=$HOME/.ssh/.unlock_tmp.sh}
-	
 
 	zstyle -s :plugins:ssh-agent lifetime lifetime
 
@@ -51,7 +50,7 @@ ssh_environment="$HOME/.ssh/environment-$HOST"
 
 if [[ -f "$ssh_environment" ]]; then
 	source $ssh_environment >/dev/null
-	ps x | grep ssh-agent | grep -q $SSH_AGENT_PID || {
+	ps x | grep ssh-agent | grep -q $SSH_AGENT_PID >/dev/null 2>&1 || {
 		start_ssh_agent
 	}
 else
