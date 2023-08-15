@@ -1,5 +1,4 @@
 typeset ssh_environment
-
 function start_ssh_agent() {
 	local lifetime
 	local -a identities
@@ -8,7 +7,6 @@ function start_ssh_agent() {
 	: ${SSH_UNLOCK_IDS_TMP_SH:=$HOME/.ssh/.unlock_tmp.sh}
 
 	zstyle -s :plugins:ssh-agent lifetime lifetime
-
 	ssh-agent -s ${lifetime:+-t} ${lifetime} | sed 's/^echo/#echo/' >! $ssh_environment
 	chmod 600 $ssh_environment
 	source $ssh_environment >/dev/null
